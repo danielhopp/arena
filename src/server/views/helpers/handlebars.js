@@ -1,4 +1,3 @@
-const crypto = require('crypto')
 const _ = require('lodash');
 const Handlebars = require('handlebars');
 
@@ -40,8 +39,8 @@ const helpers = {
     block.push(options.fn(this));
   },
 
-  hashIdAttr(id) {
-    return crypto.createHash('sha256').update(id).digest('hex');
+  encodeIdAttr(id) {
+    return id.replace(/:| /g, '');
   }
 };
 

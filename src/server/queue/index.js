@@ -39,13 +39,12 @@ class Queues {
       return this._queues[queueHost][queueName];
     }
 
-    const { type, name, port, host, db, password, prefix, url, redis, tls } = queueConfig;
+    const { type, name, port, host, db, password, prefix, url, redis } = queueConfig;
 
     const redisHost = { host };
     if (password) redisHost.password = password;
     if (port) redisHost.port = port;
     if (db) redisHost.db = db;
-    if (tls) redisHost.tls = tls;
 
     const isBee = type === 'bee';
 
@@ -66,7 +65,6 @@ class Queues {
       queue = new Bee(name, options);
       queue.IS_BEE = true;
     } else {
-      if (queueConfig.createClient) options.createClient = queueConfig.createClient;
       queue = new Bull(name, options);
     }
 
