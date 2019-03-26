@@ -12,10 +12,11 @@
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.10",
     "handlebars-helpers": "^0.10.0",
+    "jsoneditor": "^5.9.6",
     "lodash": "^4.17.4",
     "nodemon": "^1.18.7",
-    "jsoneditor": "^5.9.6",
-    "tablesort": "^5.0.1"
+    "tablesort": "^5.0.1",
+    "through": "^2.3.8"
   },
   "scripts": {
     "start": "nodemon index.js --ignore 'public/vendor/*'",
