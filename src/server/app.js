@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
 
+require('dotenv').config()
+
 module.exports = function() {
   const hbs = exphbs.create({
     defaultLayout: `${__dirname}/views/layout`,
@@ -23,7 +25,7 @@ module.exports = function() {
   const queues = new Queues(defaultConfig);
   require('./views/helpers/handlebars')(handlebars, { queues });
   app.locals.Queues = queues;
-  app.locals.appBasePath = '';
+  app.locals.appBasePath = process.env.ARENA_BASE_PATH || '';
   app.locals.vendorPath = '/vendor';
 
   app.set('views', `${__dirname}/views`);

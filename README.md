@@ -213,6 +213,14 @@ To run a container, execute the following command. Note that we need to settle t
 docker run -p 4567:4567 -v </local/route/to/index.json>:/opt/arena/src/server/config/index.json <name-image>
 ```
 
+### Change app base path
+```shell
+docker run \
+   -e ARENA_BASE_PATH=<your/url/path> \
+   -p 4567:4567 \
+   -v </local/route/to/index.json>:/opt/arena/src/server/config/index.json <name-image>
+```
+
 ### Development
 
 Arena is written using Express, with simple jQuery and Handlebars on the front end.
